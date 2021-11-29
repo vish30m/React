@@ -1,5 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import Table from "@material-ui/core/Table";
+
+import TableBody from "@material-ui/core/TableBody";
+
+import TableCell from "@material-ui/core/TableCell";
+
+import TableContainer from "@material-ui/core/TableContainer";
+
+import TableHead from "@material-ui/core/TableHead";
+
+import TableRow from "@material-ui/core/TableRow";
+//import SearchBar from "material-ui-search-bar"
+import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
 class Open extends React.Component {
    
  
@@ -37,40 +51,79 @@ axios
 render(){
     return <div className="container ">
          <form onSubmit={this.handleSubmit}>
-<label>
- Search
-  <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
-<input type="submit" value="Submit" />
-</form>
-    <table className="table  table-striped table-hover border border-5 border-dark mx-auto mt-5 ">
-      <thead className="table-info">
-        <tr>
-          <th>ComplaintId</th>
-          <th>ProductModelNumber</th>
-          <th>ComplaintName</th>
-          <th>Status</th>
-          {/* <th>
-              ClientId
-          </th>
-          <th>
-              EngineerId
-          </th> */}
+          <label>
+            <b>Search</b>
+            <input
+              type="tel"
+              className="mt-5 ms-3"
+              required
+              placeholder="clientId"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" className="btn btn-dark   ms-3" value="Submit"  style={{
+            color:'white',
+          }}/>
+        </form>
+        <Paper>
+        
+        <TableContainer component={Paper}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              <TableCell>ComplaintId</TableCell>
 
-        </tr>
-      </thead >
-      <tbody>
-        {this.state.complaints.map((complaint) => (
-          <tr>
-              <td>{complaint.complaintId}</td>
-            <td>{complaint.productModelNumber}</td>
-            <td>{complaint.complaintName}</td>
-            <td>{complaint.status}</td>
-            {/* <td>{complaint.clientId}</td>
-            <td>{complaint.engineerId}</td> */}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+              <TableCell align="center">ComplaintName</TableCell>
+
+              <TableCell align="center">ProductModelNumber</TableCell>
+
+              <TableCell align="center">Status</TableCell>
+              
+              <TableCell align="center">ProductDetails</TableCell>
+            </TableRow>
+          </TableHead>
+
+          <TableBody>
+            {this.state.complaints.map((complaint, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell component="th" scope="row">
+                    {complaint.complaintId}
+                  </TableCell>
+
+                  <TableCell align="center">
+                    {complaint.productModelNumber}
+                  </TableCell>
+
+                  <TableCell align="center">
+                    {complaint.complaintName}
+                  </TableCell>
+
+                  <TableCell align="center">{complaint.status}</TableCell>
+
+                 
+
+                 
+                  
+                  <TableCell align="center">
+                    <Link
+                      to={`/complaints/productdetails/${complaint.complaintId}`}
+                    >
+                      <input
+                        type="button"
+                        value="ProductDetails"
+                        className="btn btn-outline-secondary me-2"
+                      />
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      </Paper>
   
   </div>
 }

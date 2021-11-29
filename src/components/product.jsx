@@ -1,71 +1,95 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Table from "@material-ui/core/Table";
 
+import TableBody from "@material-ui/core/TableBody";
+
+import TableCell from "@material-ui/core/TableCell";
+
+import TableContainer from "@material-ui/core/TableContainer";
+
+import TableHead from "@material-ui/core/TableHead";
+
+import TableRow from "@material-ui/core/TableRow";
+
+import Paper from "@material-ui/core/Paper";
 class Product extends React.Component {
-   state = {
-   product: {
-    dateofPurchase: "",
-    modelNumber: "",
-    productCategoryName: "",
-    productName: "",
-    warrantyDate:"",
-    warrentyYears: ""
+  state = {
+    product: {
+      dateofPurchase: "",
+      modelNumber: "",
+      productCategoryName: "",
+      productName: "",
+      warrantyDate: "",
+      warrentyYears: "",
     },
-   products:[],
+    products: [],
   };
   componentDidMount() {
     axios
-      .get(`http://localhost:8080/api/getProduct/${this.props.match.params.complaintId}`)
+      .get(
+        `http://localhost:8080/api/getProduct/${this.props.match.params.complaintId}`
+      )
       .then((res) => {
-        const product={...this.state.product};
-             product.modelNumber= res.data.modelNumber;
-                      product.productCategoryName = res.data.productCategoryName;
-                      product.productName= res.data.productName;
-                      product.warrantyDate = res.data.warrantyDate;
-                      product.warrentyYears=res.data.warrentyYears;
-                      product.dateofPurchase=res.data.dateofPurchase
-            console.log(res.data);
-            console.log(product);
-            this.setState({product: res.data})})
-          .catch((err)=> console.log(err));
-      }
- 
+        const product = { ...this.state.product };
+        product.modelNumber = res.data.modelNumber;
+        product.productCategoryName = res.data.productCategoryName;
+        product.productName = res.data.productName;
+        product.warrantyDate = res.data.warrantyDate;
+        product.warrentyYears = res.data.warrentyYears;
+        product.dateofPurchase = res.data.dateofPurchase;
+        console.log(res.data);
+        console.log(product);
+        this.setState({ product: res.data });
+      })
+      .catch((err) => console.log(err));
+  }
+
   render() {
     return (
-      <div className="container">
-       
-        <table className="table table-info mt-5">
-          <thead>
-            <tr>
-              
-              <th>ModelNumber</th>
-              <th>ProductCategoryName</th>
-              <th>ProductName</th>
-              <th>WarrantyYears</th>
-              <th>WarrantyDate</th>
-              <th>DateOfPurchase</th>
-              
-            </tr>
-          </thead>
-          <tbody>
+      <TableContainer component={Paper}>
+      <Table stickyHeader aria-label="sticky table">
+        <TableHead>
+          <TableRow>
             
-              <tr>
-              <td>{this.state.product.productCategoryName}</td>
-                <td>{this.state.product.productName}</td>
-                <td>
-                  {this.state.product.modelNumber}
-                  </td>
-                  <td>{this.state.product.warrantyDate}</td>
-                  
-                <td>{this.state.product.dateofPurchase}</td>
-                <td>{this.state.product.warrentyYears}</td>
-                
-              </tr>
+
+            <TableCell align="center">ProductCategoryName</TableCell>
+
+            <TableCell align="center">ProductModelNumber</TableCell>
+
+            <TableCell align="center">ProductName</TableCell>
+            <TableCell align="center">Warranty Date</TableCell>
+            <TableCell align="center">Warranty Years</TableCell>
+            <TableCell align="center">Date Of Purchase</TableCell>
+            
+          </TableRow>
+        </TableHead>
+
+        <TableBody>
+        <TableRow>
+                <TableCell component="th" scope="row">
+                  {this.state.product.productModelNumber}
+                </TableCell>
+
+                <TableCell align="center">
+                  {this.state.product.productCategoryName}
+                </TableCell>
+
+                <TableCell align="center">
+                  {this.state.product.productName}
+                </TableCell>
+
+                <TableCell align="center">{this.state.product.warrantyDate}</TableCell>
+                <TableCell align="center">{this.state.product.warrentyYears}</TableCell>
+
+                <TableCell align="center">{this.state.product.dateofPurchase}</TableCell>
+              </TableRow>
            
-          </tbody>
-        </table>
-      </div>
+         
+        </TableBody>
+      </Table>
+    </TableContainer>
     );
   }
 }

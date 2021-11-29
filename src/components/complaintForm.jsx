@@ -5,18 +5,18 @@ import React, { Component } from "react";
 class ComplaintForm extends React.Component {
   state = {
     complaint: {
-      complaintId:"",
+      complaintId: "",
       productModelNumber: "",
       complaintName: "",
       status: "",
-     clientId: "",
-     engineerId: "",
+      clientId: "",
+      engineerId: "",
     },
   };
   handleChange = (event) => {
-    const complaint = { ...this.state.complaint }; 
-    complaint[event.target.name] = event.target.value; 
-   
+    const complaint = { ...this.state.complaint };
+    complaint[event.target.name] = event.target.value;
+
     console.log(event.target.name);
     console.log(event.target.value);
     this.setState({ complaint: complaint });
@@ -24,17 +24,14 @@ class ComplaintForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("handleSubmit");
-    const complaints= {
-      
+    const complaints = {
       clientId: this.state.complaint.clientId,
       complaintId: this.state.complaint.complaintId,
       complaintName: this.state.complaint.complaintName,
       engineerId: this.state.complaint.engineerId,
       productModelNumber: this.state.complaint.productModelNumber,
-      status: this.state.complaint.status
-    
-   
-  }
+      status: this.state.complaint.status,
+    };
     axios
       .post("http://localhost:8080/api/Complaints", this.state.complaint)
       .then((res) => {
@@ -42,14 +39,17 @@ class ComplaintForm extends React.Component {
         this.props.history.push("/complaint");
       })
       .catch((err) => console.log(err));
-      alert("complaint is booked");
+    alert("complaint is booked");
   };
 
   render() {
     return (
       <div>
         <h3>BookComplaint</h3>
-        <form onSubmit={this.handleSubmit} className="w-50 mx-auto border p-3  ">
+        <form
+          onSubmit={this.handleSubmit}
+          className="w-50 mx-auto border p-3  "
+        >
           <div className="mb-3">
             <label for="exampleInputName" className="form-label">
               ProductModelNumber
@@ -61,18 +61,14 @@ class ComplaintForm extends React.Component {
               value={this.state.complaint.productModelNumber}
               name="productModelNumber"
               onChange={this.handleChange}
-             required
+              required
             />
           </div>
           <div className="mb-3">
-            <label  className="form-label">
-              ComplaintName
-            </label>
+            <label className="form-label">ComplaintName</label>
             <input
               type="text"
               className="form-control"
-              
-             
               value={this.state.complaint.complaintName}
               name="complaintName"
               onChange={this.handleChange}
@@ -94,11 +90,10 @@ class ComplaintForm extends React.Component {
               onChange={this.handleChange}
             /> 
             </div>*/}
-            <label for="exampleInputEmail1" className="form-label">
-                Status
-
-            </label>
-             <select
+          <label for="exampleInputEmail1" className="form-label">
+            Status
+          </label>
+          <select
             className="form-select mb-3"
             aria-label="Default select example"
             value={this.state.complaint.status}
@@ -111,9 +106,11 @@ class ComplaintForm extends React.Component {
             <option value="close">close</option>
             <option value="resolved">Resolved</option>
             <option value="resolve online">ResolveOnline</option>
-            <option value="resolved after homevisit">Resolve After homeVisit</option>
+            <option value="resolved after homevisit">
+              Resolve After homeVisit
+            </option>
           </select>
-             {/* <select
+          {/* <select
             className="form-select mb-3"
             aria-label="Default select example"
             value={this.state.complaint.status}
@@ -129,15 +126,12 @@ class ComplaintForm extends React.Component {
             
 
           </select> */}
-          
+
           <div className="mb-3">
-            <label  className="form-label">
-             clientId
-            </label>
+            <label className="form-label">clientId</label>
             <input
               type="tel"
               className="form-control"
-             
               value={this.state.complaint.clientId}
               name="clientId"
               onChange={this.handleChange}
@@ -145,21 +139,17 @@ class ComplaintForm extends React.Component {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">
-             engineerId
-            </label>
+            <label className="form-label">engineerId</label>
             <input
               type="tel"
               className="form-control"
-             
               value={this.state.complaint.engineerId}
               name="engineerId"
               onChange={this.handleChange}
               required
             />
           </div>
-          
-          
+
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">
               Submit

@@ -18,6 +18,7 @@ import UpdateComplaint from './components/updatecomplaint';
 import Cform from './components/cform';
 import Navbar from './components/navs';
 import Complaintt from './components/complaintt';
+import ComplaintRedux from './components/complaintredux';
 function App() {
   return (
     <div className="App">
@@ -27,7 +28,9 @@ function App() {
       <Switch>
         
         {/* <Route path="/complaintForm" component={ComplaintForm}/> */}
-        <Route path='/complaint' component={Complaintt}/>
+        <Route path='/complaint' component={ComplaintRedux}/>
+        {/* <Route path='/complaint' component={Complaint}/> */}
+        {/* <Route path='/complaint' component={Complaintt}/> */}
         <Route path='/complaints/add' component={Cform}/>
         
         <Route path='/complaints/update/:complaintId' component={UpdateComplaint}/>

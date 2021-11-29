@@ -1,14 +1,3 @@
-/*
- creating class component
- imrc - import React & Component
- cc - create class
- ccc - create class with constructor
-
- Creating functional component
- imr - imports React
- sfc(stateless functional component) - creates functional component
-
-*/
 import React, { useState } from "react";
 // import Typography from "@mui/material/Typography";
 // import Input from "@mui/material/Input";
@@ -88,7 +77,7 @@ const Login = (props) => {
     console.log(errors);
     if (errors) return;
     axios
-      .post("http://localhost:8082/login", user)
+      .post("http://localhost:8080/Abc/login", user)
       .then((res) => props.history.push("/home"))
       .catch((err) => {
         console.log(err.response.data.message);
@@ -158,8 +147,8 @@ const Login = (props) => {
                   <em>None</em>
                 </MenuItem>
                 <MenuItem value="admin">Admin</MenuItem>
-                <MenuItem value="customer">Customer</MenuItem>
-                <MenuItem value="student">Student</MenuItem>
+                <MenuItem value="engineer">Engineer</MenuItem>
+                <MenuItem value="client">Client</MenuItem>
               </Select>
             </FormControl>
             {errors && <Typography variant="caption">{errors.role}</Typography>}
