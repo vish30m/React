@@ -31,22 +31,40 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink to="/complaint" activeStyle>
-            complaint
+            Complaint
           </NavLink>
-          <NavLink to="/engineer" activeStyle>
+          {/* <NavLink to="/engineers" activeStyle>
             Engineer
-          </NavLink>
-          <NavLink to="/" activeStyle>
+          </NavLink> */}
+          <NavLink to="/products" activeStyle>
             Products
           </NavLink>
-          <NavLink to="/" activeStyle>
-            About
+          <NavLink to="/admin" activeStyle>
+            Admin
           </NavLink>
-          <NavLink to="/" activeStyle>
-            Contact Us
+          <NavLink to="/engineers" activeStyle>
+            Engineer
           </NavLink>
+          {/* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" to="/admin" >Admin</a></li>
+            <li><a class="dropdown-item" to="/engineers">Engineer</a></li>
+          </ul>
+          </li>
+          </ul>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
+           
+          <NavLink to="/register" activeStyle>
+            Register
+          </NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtnLink to="/login">Log In</NavBtnLink>

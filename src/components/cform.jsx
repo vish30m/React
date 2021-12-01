@@ -22,7 +22,7 @@ const Cform = (props) => {
     complaintName: "",
     status: "",
     clientId: "",
-    engineerId: "",
+    engineerId: "0",
   });
   const [errors, setErrors] = useState({
     //complaintId:"",
@@ -30,7 +30,7 @@ const Cform = (props) => {
     complaintName: "",
     status: "",
     clientId: "",
-    engineerId: "",
+    engineerId: "0",
   });
   const [errMsg, setErrMsg] = useState(" ");
   const schema = {
@@ -85,12 +85,12 @@ const Cform = (props) => {
     }
     axios
       .post("http://localhost:8080/api/Complaints", user)
-       .then((res) => props.history.push("/complaint"))
+      .then((res) => props.history.push("/complaint"))
       .catch((err) => {
         console.log(err.response);
         setErrMsg(err.response);
       });
-     alert("Complaint is booked");
+    alert("Complaint is booked");
   };
   const [open, setOpen] = React.useState(false);
 
@@ -110,7 +110,6 @@ const Cform = (props) => {
           {/* {errMsg && <Alert severity="error">{errMsg}</Alert>} */}
 
           <form
-           
             noValidate
             onSubmit={handleSubmit}
             style={{
@@ -119,7 +118,6 @@ const Cform = (props) => {
               marginTop: "10px",
             }}
           >
-          
             <Box mb={3}>
               <TextField
                 inputProps={ariaLabel}
@@ -173,7 +171,11 @@ const Cform = (props) => {
                   </MenuItem>
                   <MenuItem value="open">Open</MenuItem>
                   <MenuItem value="customer">Close</MenuItem>
-                  <MenuItem value="resolve">Resolve</MenuItem>
+                  <MenuItem value="resolve online">Resolve Online</MenuItem>
+                  <MenuItem value="resolved after homevisit">
+                    Resolve after homevisit
+                  </MenuItem>
+                  <MenuItem value="resolved">Resolved</MenuItem>
                 </Select>
               </FormControl>
               {errors && (
@@ -195,7 +197,7 @@ const Cform = (props) => {
                 <Typography variant="caption">{errors.clientId}</Typography>
               )}
             </Box>
-            <Box mb={3}>
+            {/* <Box mb={3}>
               <TextField
                 inputProps={ariaLabel}
                 fullWidth
@@ -209,7 +211,7 @@ const Cform = (props) => {
               {errors && (
                 <Typography variant="caption">{errors.engineerId}</Typography>
               )}
-            </Box>
+            </Box> */}
             <Box mb={3}>
               <Tooltip
                 open={open}
@@ -217,7 +219,7 @@ const Cform = (props) => {
                 onOpen={handleOpen}
                 title="click submit to book complaint"
               >
-                <Button variant="contained" type="submit" fullWidth  >
+                <Button variant="contained" type="submit" fullWidth>
                   Submit
                 </Button>
               </Tooltip>

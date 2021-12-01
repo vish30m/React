@@ -44,7 +44,7 @@ class UpdateComplaint extends React.Component {
         this.props.history.push("/complaint");
       })
       .catch((err) => console.log(err));
-    alert("status is updated");
+    alert("status is updated ");
   };
 
   render() {
@@ -99,7 +99,16 @@ class UpdateComplaint extends React.Component {
               Resolve After homeVisit
             </option>
           </select>
-
+          <div className="mb-3">
+            <label className="form-label">EngineerId</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.complaint.engineerId}
+              name="engineerId"
+              onChange={this.handleChange}
+            />
+          </div>
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">
               Submit

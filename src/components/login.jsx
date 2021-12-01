@@ -78,7 +78,7 @@ const Login = (props) => {
     if (errors) return;
     axios
       .post("http://localhost:8080/Abc/login", user)
-      .then((res) => props.history.push("/home"))
+      .then((res) => props.history.push("/admin"))
       .catch((err) => {
         console.log(err.response.data.message);
         setErrMsg(err.response.data.message);

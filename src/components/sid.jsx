@@ -11,7 +11,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 
 import TableRow from "@material-ui/core/TableRow";
-//import SearchBar from "material-ui-search-bar"
+
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 class Sid extends React.Component {
@@ -60,68 +60,68 @@ class Sid extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" className="btn btn-dark   ms-3" value="Submit"  style={{
-            color:'white',
-          }}/>
+          <input
+            type="submit"
+            className="btn btn-dark   ms-3"
+            value="Submit"
+            style={{
+              color: "white",
+            }}
+          />
         </form>
         <Paper>
-        
-        <TableContainer component={Paper}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              <TableCell>ComplaintId</TableCell>
+          <TableContainer component={Paper}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>ComplaintId</TableCell>
 
-              <TableCell align="center">ComplaintName</TableCell>
+                  <TableCell align="center">ComplaintName</TableCell>
 
-              <TableCell align="center">ProductModelNumber</TableCell>
+                  <TableCell align="center">ProductModelNumber</TableCell>
 
-              <TableCell align="center">Status</TableCell>
-              
-              <TableCell align="center">ProductDetails</TableCell>
-            </TableRow>
-          </TableHead>
+                  <TableCell align="center">Status</TableCell>
 
-          <TableBody>
-            {this.state.complaints.map((complaint, index) => {
-              return (
-                <TableRow key={index}>
-                  <TableCell component="th" scope="row">
-                    {complaint.complaintId}
-                  </TableCell>
-
-                  <TableCell align="center">
-                    {complaint.productModelNumber}
-                  </TableCell>
-
-                  <TableCell align="center">
-                    {complaint.complaintName}
-                  </TableCell>
-
-                  <TableCell align="center">{complaint.status}</TableCell>
-
-                 
-
-                 
-                  
-                  <TableCell align="center">
-                    <Link
-                      to={`/complaints/productdetails/${complaint.complaintId}`}
-                    >
-                      <input
-                        type="button"
-                        value="ProductDetails"
-                        className="btn btn-outline-secondary me-2"
-                      />
-                    </Link>
-                  </TableCell>
+                  <TableCell align="center">ProductDetails</TableCell>
                 </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      </Paper>
+              </TableHead>
+
+              <TableBody>
+                {this.state.complaints.map((complaint, index) => {
+                  return (
+                    <TableRow key={index}>
+                      <TableCell component="th" scope="row">
+                        {complaint.complaintId}
+                      </TableCell>
+
+                      <TableCell align="center">
+                        {complaint.productModelNumber}
+                      </TableCell>
+
+                      <TableCell align="center">
+                        {complaint.complaintName}
+                      </TableCell>
+
+                      <TableCell align="center">{complaint.status}</TableCell>
+
+                      <TableCell align="center">
+                        <Link
+                          to={`/complaints/productdetails/${complaint.complaintId}`}
+                        >
+                          <input
+                            type="button"
+                            value="ProductDetails"
+                            className="btn btn-outline-secondary me-2"
+                          />
+                        </Link>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
       </div>
     );
   }

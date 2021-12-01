@@ -70,17 +70,15 @@ export class Complaintt extends Component {
                   </TableCell>
 
                   <TableCell align="center">
-                    {complaint.productModelNumber}
-                  </TableCell>
-
-                  <TableCell align="center">
                     {complaint.complaintName}
+                  </TableCell>
+                  <TableCell align="center">
+                    {complaint.productModelNumber}
                   </TableCell>
 
                   <TableCell align="center">{complaint.status}</TableCell>
 
                   <TableCell align="center">
-                   
                     <Link to={`/complaints/update/${complaint.complaintId}`}>
                       <input
                         type="button"
@@ -96,7 +94,7 @@ export class Complaintt extends Component {
                       value="Delete"
                       className="btn btn-outline-danger"
                       onClick={() => this.handleDelete(complaint.complaintId)}
-                    />{" "}
+                    />
                   </TableCell>
                   <TableCell align="center">
                     <Link

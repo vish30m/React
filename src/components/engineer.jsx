@@ -43,48 +43,33 @@ class Engineer extends React.Component {
 
   render() {
     return (
-      
-        <TableContainer component={Paper}>
-      <Table stickyHeader aria-label="sticky table">
-        <TableHead>
-          <TableRow>
-            
+      <TableContainer component={Paper}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">EmployeeId</TableCell>
 
-            <TableCell align="center">EmployeeId</TableCell>
+              <TableCell align="center">EngineerName</TableCell>
 
-            <TableCell align="center">EngineerName</TableCell>
+              <TableCell align="center">Domain</TableCell>
+            </TableRow>
+          </TableHead>
 
-            <TableCell align="center">Domain</TableCell>
-            
-            
-          </TableRow>
-        </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell component="th" scope="row" align="center">
+                {this.state.engineer.employeeId}
+              </TableCell>
 
-        <TableBody>
-        
-                
-                 <TableRow>
-                <TableCell component="th" scope="row" align="center">
-                  {this.state.engineer.employeeId}
-                </TableCell>
+              <TableCell align="center">
+                {this.state.engineer.engineerName}
+              </TableCell>
 
-                <TableCell align="center">
-                  {this.state.engineer.engineerName}
-                </TableCell>
-
-                <TableCell align="center">
-                  {this.state.engineer.domain}
-                </TableCell>
-               
-
-              
-              </TableRow>
-            
-          
-        </TableBody>
-      </Table>
-    </TableContainer>
-      
+              <TableCell align="center">{this.state.engineer.domain}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     );
   }
 }
