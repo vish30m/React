@@ -30,11 +30,7 @@ class Engineers extends React.Component {
     return (
       <div className="container">
         
-          { <Link
-          to="/addEngineers"
-          className="btn btn-primary btn-large mb-3 float-end" >
-          Add
-        </Link> } 
+         
 
         
         <table className="table">
@@ -78,6 +74,12 @@ class Engineers extends React.Component {
             ))}
           </tbody>
         </table>
+        { <Link
+          to="/addEngineers"
+          className="btn btn-primary btn-large mb-3 float-end" >
+          Add
+        </Link> } 
+         
       </div>
     );
   }

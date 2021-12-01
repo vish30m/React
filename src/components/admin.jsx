@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/system";
 
 class Admin extends React.Component {
   state = {
@@ -51,6 +52,22 @@ class Admin extends React.Component {
           to="/getAdmins/add"
           className="btn btn-primary btn-large mb-1 float-end" >
           Add
+        </Link> } 
+        { <Link
+          to="/getAdmins/complaintByStatus"
+          className="btn btn-primary btn-large mb-1 float-start" >
+          complaintBystatus
+        </Link> } 
+        
+        { <Link
+          to="/getAdmins/addEngineer"
+          className="btn btn-primary btn-large mb-1 ms-5 float-start" >
+          addEngineer
+        </Link> } 
+        { <Link
+          to="/getAdmins/getProducts"
+          className="btn btn-primary btn-large mb-1 ms-5 float-start" >
+         getProducts
         </Link> } 
       </div>
     );

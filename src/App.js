@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Complaint from './components/complaint';
 import ComplaintForm from './components/complaintForm';
-import Sid from './components/sid';
+import Sid from './components/clientallcomplaints';
 import Login from './components/login';
 import Engineer from './components/engineer';
 import Product from './components/product';
@@ -35,6 +35,10 @@ import Contact from './components/contact';
 // import engineerredux from './components/engineerredux';
 import Login1 from './components/login1';
 import AdminValidationForm from './components/adminform';
+// import complaintsByStatus from './components/complaintsbystatus';
+import ComplaintsByStatus from './components/complaintsByStatus';
+import ProductsByModel from './components/productsbymodel';
+import Clientallcomplaints from './components/clientallcomplaints';
 function App() {
   return (
     <div className="App">
@@ -56,9 +60,12 @@ function App() {
         <Route path='/getProducts/update/:modelNumber' component={UpdateProduct}/>
         <Route path='/about' component={About}/>
         <Route path='/getAdmins/add' component={AdminValidationForm}/>
+        <Route path='/getAdmins/complaintByStatus' component={ComplaintsByStatus}/>
+        <Route path='/getAdmins/addEngineer' component={Engineers}/>
+        <Route path='/getAdmins/getProducts' component={ProductsByModel}/>
         <Route path='/getEngineers/update/:employeeId' component={Updateengineer}/>
         <Route path='/complaints/update/:complaintId' component={UpdateComplaint}/>
-       <Route path='/complaints/clientAllComplaints' component={Sid}/>
+       <Route path='/complaints/clientAllComplaints' component={Clientallcomplaints}/>
        <Route path='/complaints/clientAllOpenComplaints' component={Open}/>
        <Route path='/complaints/engineerdetails/:complaintId' component={Engineer}/>
        <Route path='/complaints/productdetails/:complaintId' component={Product}/>
