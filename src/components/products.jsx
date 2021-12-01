@@ -34,7 +34,7 @@ class Products extends React.Component {
         >
           Add Product
         </Link>
-        <table className="table table-secondary table-striped table-hover mx-auto mt-3">
+        <table className="table table-striped border-dark border w-75 mx-auto padding mt-5">
           <thead>
             <tr>
               <th>ModelNumber</th>
@@ -56,13 +56,13 @@ class Products extends React.Component {
                 <td>{product.warrantyYears}</td>
                 <td>{product.warrantyDate}</td>
                 <td>
-                  <Link to={`/getProducts/update/${product.modelNumber}`}>
+                  {/* <Link to={`/getProducts/update/${product.modelNumber}`}>
                     <input
                       type="button"
                       value="Update"
                       className="btn btn-secondary me-2 "
                     />
-                  </Link>
+                  </Link> */}
                   <input
                     type="button"
                     value="Delete"

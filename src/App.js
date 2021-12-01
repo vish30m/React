@@ -39,6 +39,14 @@ import AdminValidationForm from './components/adminform';
 import ComplaintsByStatus from './components/complaintsByStatus';
 import ProductsByModel from './components/productsbymodel';
 import Clientallcomplaints from './components/clientallcomplaints';
+import EngineerList from './components/engineerlist';
+import Idsearch from './components/idsearch';
+import Statussearch from './components/statussearch';
+import UpdateComplaint1 from './components/updatecomplaint1';
+import Client from './components/client';
+import Saveclient from './components/saveclient';
+import UpdateClient from './components/updateclient';
+
 function App() {
   return (
     <div className="App">
@@ -53,11 +61,18 @@ function App() {
         <Route path='/complaint' component={Complaintt}/>
         <Route path='/complaints/add' component={Cform}/>
         <Route path='/engineers' component={Engineers}/>
+        <Route path='/engineerlist' component={EngineerList}/>
+        <Route path='/idsearch' component={Idsearch}/>
+        <Route path='/statussearch' component={Statussearch}/>
         <Route path='/addEngineers' component={Validationform}/>
         <Route path='/admin' component={Admin}/>
         <Route path='/products' component={Products}/>
+        <Route path='/updatecomplaint1' component={UpdateComplaint1}/>
+        <Route path='/client' component={Client}/>
+        <Route path='/updateclient/:clientId' component={UpdateClient}/>
+        <Route path='/saveclient' component={Saveclient}/>
         <Route path='/getProducts/add' component={Pform}/>
-        <Route path='/getProducts/update/:modelNumber' component={UpdateProduct}/>
+        {/* <Route path='/getProducts/update/:modelNumber' component={UpdateProduct}/> */}
         <Route path='/about' component={About}/>
         <Route path='/getAdmins/add' component={AdminValidationForm}/>
         <Route path='/getAdmins/complaintByStatus' component={ComplaintsByStatus}/>

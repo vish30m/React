@@ -48,26 +48,27 @@ class Admin extends React.Component {
             ))}
           </tbody>
         </table>
-         { <Link
-          to="/getAdmins/add"
-          className="btn btn-primary btn-large mb-1 float-end" >
-          Add
-        </Link> } 
+        
         { <Link
           to="/getAdmins/complaintByStatus"
-          className="btn btn-primary btn-large mb-1 float-start" >
-          complaintBystatus
+          className="btn btn-secondary btn-large mb-1  float-center" >
+          complaint By status
         </Link> } 
         
         { <Link
           to="/getAdmins/addEngineer"
-          className="btn btn-primary btn-large mb-1 ms-5 float-start" >
-          addEngineer
+          className="btn btn-secondary btn-large mb-1 ms-5 float-center" >
+          Add Engineer
         </Link> } 
         { <Link
           to="/getAdmins/getProducts"
-          className="btn btn-primary btn-large mb-1 ms-5 float-start" >
-         getProducts
+          className="btn btn-secondary btn-large mb-1 ms-5 float-center" >
+         Get Product
+        </Link> } 
+        { <Link
+          to="/getAdmins/add"
+          className="btn btn-secondary btn-large mb-1 ms-5 float-center" >
+          Add
         </Link> } 
       </div>
     );

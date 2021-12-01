@@ -37,13 +37,19 @@ const Navbar = () => {
             Engineer
           </NavLink> */}
           <NavLink to="/products" activeStyle>
-            Products
+            Product
           </NavLink>
           <NavLink to="/admin" activeStyle>
             Admin
           </NavLink>
+          <NavLink to="/engineerlist" activeStyle>
+           Engineer
+          </NavLink>
+          <NavLink to="/client" activeStyle>
+           Client
+          </NavLink>
           <NavLink to="/about" activeStyle>
-            About
+          About
           </NavLink>
           {/* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,13 +68,15 @@ const Navbar = () => {
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
            
-          <NavLink to="/register" activeStyle>
-            Register
-          </NavLink>
+          
         </NavMenu>
         <NavBtn>
           <NavBtnLink to="/login">Log In</NavBtnLink>
         </NavBtn>
+         
+        <NavLink to="/register" activeStyle>
+            Register
+          </NavLink>
       </Nav>
     </>
   );
